@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { ListGroup } from 'react-bootstrap';
 
 const Posts = ({ posts, loading }) => {
@@ -8,14 +8,11 @@ const Posts = ({ posts, loading }) => {
     }
 
     return (
-        <div>
-            <h3>Post from <a href='https://jsonplaceholder.typicode.com/' target='_blank'>jsonplaceholder</a></h3>
             <ListGroup>
                 {posts.map( post => {
                     return ( <ListGroup.Item key={post.id}>{post.title}</ListGroup.Item> )
                 })}
             </ListGroup>
-        </div>
     )
 };
 
