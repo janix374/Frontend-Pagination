@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import axios from 'axios';
-import Posts from './components/Posts';
+import PaginationLogic from './components/PaginationLogic';
 
 function App() {
 
@@ -23,11 +23,8 @@ function App() {
     fetchPost();
   },[]);
 
-
-  console.log(receivedData);
-
   return (
-   <Posts posts={receivedData} loading={loading}/>
+   <PaginationLogic someData={receivedData} loading={loading}/>
   );
 }
 
