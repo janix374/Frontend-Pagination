@@ -1,19 +1,26 @@
 import React from 'react';
-import { ListGroup } from 'react-bootstrap';
+import { ListGroup, Row, Col } from 'react-bootstrap';
 
-const Posts = ({ posts, loading }) => {
-
-    if(loading){
-        return <h2>Loading...</h2>
-    }
+const Posts = ({ posts,isLoading  }) => {
 
     return (
-            <ListGroup>
-                {posts.map( post => {
-                    return ( <ListGroup.Item key={post.id}>{post.title}</ListGroup.Item> )
-                })}
-            </ListGroup>
+        <Row className='my-4 '>
+            <Col>
+                { isLoading ? ( <div>Loading ...</div>
+                ):(
+                    <ListGroup>
+                        {posts.map((post) => {
+                            return (<ListGroup.Item key={post.id}><span className='text-danger'>{post.id}. </span>
+                                <span>{post.title}</span></ListGroup.Item>)
+                        })}
+                    </ListGroup>
+                )
+                }
+            </Col>
+        </Row>
     )
+
+
 };
 
 export default Posts;

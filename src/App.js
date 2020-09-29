@@ -1,30 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import axios from 'axios';
-import PaginationLogic from './components/PaginationLogic';
+import PaginationPostComponent from './components/PaginationPostComponent';
 
 function App() {
 
-    const [loading, setLoading] = useState(false);
-    const [errors, setErrors] = useState(false);
-    const [receivedData, setRecivedData] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const [isError, setIsError] = useState(false);
+    const [resource, setResource] = useState([]);
 
   useEffect(() =>{
     const fetchPost = async () => {
+        setIsError(false);
+        setIsLoading(true);
       try{
-          setLoading(true);
           const postData = await axios.get('https://jsonplaceholder.typicode.com/posts');
-          setRecivedData(() => {return postData.data});
-          setLoading(false);
+          setResource(() => {return postData.data});
       } catch (error) {
-        console.log(error);
+          setIsError(true);
       }
+        setIsLoading(false);
     }
     fetchPost();
   },[]);
 
   return (
-   <PaginationLogic someData={receivedData} loading={loading}/>
+      <div>
+            {isError && <div>Something went wrong ...</div>}
+            <PaginationPostComponent someData={resource} isLoading={isLoading} />
+      </div>
   );
 }
 
