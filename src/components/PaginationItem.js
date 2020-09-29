@@ -1,7 +1,7 @@
 import React from 'react';
-import { Pagination, Container, Row, Col } from 'react-bootstrap';
+import { Pagination, Row, Col, Badge } from 'react-bootstrap';
 
-const PaginationComponent = ({ postPerPage, totalPost, onPageChange, currentPage }) => {
+const PaginationItem = ({ postPerPage, totalPost, onPageChange, currentPage }) => {
 
     let active = currentPage;
     let pageNumbers = [];
@@ -36,15 +36,15 @@ const PaginationComponent = ({ postPerPage, totalPost, onPageChange, currentPage
     }
 
     return (
-            <Row>
-                <Col >
+            <Row className='my-4 justify-content-md-center font-pagination-size'>
+                <Col xs='auto'>
                     <Pagination>
                         <Pagination.Prev disabled={currentPage === 1} onClick={() => onPageChange(currentPage-1)}/>
                         {
                             tempPageNumber.map((page, index) => {
                                 return(
                                     <Pagination.Item key={index} active={page === active} onClick={() => onPageChange(page)} >
-                                        {page}
+                                        <Badge variant="light">{page}</Badge>
                                     </Pagination.Item>
                                 )
                             })
@@ -56,4 +56,4 @@ const PaginationComponent = ({ postPerPage, totalPost, onPageChange, currentPage
     )
 };
 
-export default PaginationComponent;
+export default PaginationItem;
