@@ -8,9 +8,9 @@ const Posts = ({ posts, isLoading }) => {
             <Col>
                 { isLoading ? ( <div>Loading ...</div>
                 ):(
-                    <ListGroup>
+                    <ListGroup >
                         {posts.map((post) => {
-                            return (<ListGroup.Item key={post.id}><span className='text-primary'>{post.id}. </span>
+                            return (<ListGroup.Item key={post.id} className="post-bg"><span >{post.id}. </span>
                                 <span>{post.title}</span></ListGroup.Item>)
                         })}
                     </ListGroup>

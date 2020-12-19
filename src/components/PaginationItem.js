@@ -36,9 +36,9 @@ const PaginationItem = ({ postPerPage, totalPost, onPageChange, currentPage }) =
     }
 
     return (
-            <Row className='my-4 justify-content-md-center font-pagination-size'>
-                <Col xs='auto'>
-                    <Pagination>
+            <Row className='my-4 justify-content-md-center font-pagination-size '>
+                <Col xs='auto' className="post-bg">
+                    <Pagination >
                         <Pagination.Prev disabled={currentPage === 1} onClick={() => onPageChange(currentPage-1)}/>
                         {
                             tempPageNumber.map((page, index) => {

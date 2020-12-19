@@ -31,10 +31,9 @@ const PaginationPostComponent = ({ someData, isLoading }) => {
 
     return (
         <Container>
-            <h3>Post from <a href='https://jsonplaceholder.typicode.com/' target='_blank'>jsonplaceholder</a></h3>
             <PaginationPostPerPage changeDisplayedResultsPerPage={changeDisplayedResultsPerPage} postPerPage={postPerPage}/>
-            <PaginationItem postPerPage={postPerPage} totalPost={someData.length} onPageChange={onPageChange} currentPage={currentPage} />
             <Posts posts={currentPosts} isLoading={isLoading}/>
+            <PaginationItem postPerPage={postPerPage} totalPost={someData.length} onPageChange={onPageChange} currentPage={currentPage} />
         </Container>
     )
 };
