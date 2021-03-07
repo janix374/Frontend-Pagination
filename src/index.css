@@ -1,11 +1,13 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Cambria', 'Segoe UI', 'Roboto', 'Oxygen',
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Cambria', 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
+    font-family: 'Prompt', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-    background-color:  #3feee6;
+    background-color:  #5cdb95;
+    font-size: 22px;
 
 }
 
@@ -15,12 +17,14 @@ code {
 }
 
 .post-bg {
-  background-color:  #3feee6;
+  background-color:  #5cdb95;
+  color: #05386b;
 }
 
-.text-title {
-  
+.title-paginaton {
+  color: #edf5e1;
 }
+
 
 .white-bg {
   color: black;

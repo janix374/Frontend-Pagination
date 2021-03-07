@@ -1,34 +1,37 @@
-import React, { useEffect, useState } from 'react';
-import './App.css';
-import axios from 'axios';
-import PaginationPostComponent from './components/PaginationPostComponent';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import axios from "axios";
+import PaginationPostComponent from "./components/PaginationPostComponent";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [resource, setResource] = useState([]);
 
-    const [isLoading, setIsLoading] = useState(false);
-    const [isError, setIsError] = useState(false);
-    const [resource, setResource] = useState([]);
-
-  useEffect(() =>{
+  useEffect(() => {
     const fetchPost = async () => {
-        setIsError(false);
-        setIsLoading(true);
-      try{
-          const postData = await axios.get('https://jsonplaceholder.typicode.com/posts');
-          setResource(() => {return postData.data});
+      setIsError(false);
+      setIsLoading(true);
+      try {
+        const postData = await axios.get(
+          "https://jsonplaceholder.typicode.com/posts"
+        );
+        setResource(() => {
+          return postData.data;
+        });
       } catch (error) {
-          setIsError(true);
+        setIsError(true);
       }
-        setIsLoading(false);
-    }
+      setIsLoading(false);
+    };
     fetchPost();
-  },[]);
+  }, []);
 
   return (
-      <div>
-            {isError && <div>Something went wrong ...</div>}
-            <PaginationPostComponent someData={resource} isLoading={isLoading} />
-      </div>
+    <div>
+      {isError && <div>Something went wrong ...</div>}
+      <PaginationPostComponent someData={resource} isLoading={isLoading} />
+    </div>
   );
 }
 
