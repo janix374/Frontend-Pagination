@@ -20,7 +20,7 @@ npm install
 ```
 npm start
 ```
-4. Builds the app for production to the build folder
+4. Build the app for production to the build folder
 ```
 npm build
 ``` 
